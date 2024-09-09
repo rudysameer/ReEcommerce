@@ -1,14 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-
         <!-- Breadcrumb Start -->
         <div class="breadcrumb-wrap">
             <div class="container-fluid">
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
                     <li class="breadcrumb-item"><a href="#">Products</a></li>
-                    <li class="breadcrumb-item active">{{brand.name}}</li>
+                    <li class="breadcrumb-item active">{{category.name}}</li>
                 </ul>
             </div>
         </div>
@@ -64,11 +63,11 @@
                                 </div>
                             </div>
 
-                            {% for brand in brand_products %}
+                            {% for search in search_products %}
                             <div class="col-md-4">
                                 <div class="product-item">
                                     <div class="product-title">
-                                        <a href="#">{{brand.product_name}}</a>
+                                        <a href="#">{{search.product_name}}</a>
                                         <div class="ratting">
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
@@ -79,7 +78,7 @@
                                     </div>
                                     <div class="product-image">
                                         <a href="product-detail.html">
-                                            <img src="{{brand.product_image.url}}" alt="Product Image">
+                                            <img src="{{search.product_image.url}}" alt="Product Image">
                                         </a>
                                         <div class="product-action">
                                             <a href="#"><i class="fa fa-cart-plus"></i></a>
@@ -88,17 +87,45 @@
                                         </div>
                                     </div>
                                     <div class="product-price">
-                                        {% if brand.discounted_price > 0 %}
-                                            <h3><span>$</span>{{brand.discounted_price}}</h3>
+                                        {% if search.discounted_price > 0 %}
+                                            <h3><span>$</span>{{search.discounted_price}}</h3>
                                         {% else %}
-                                            <h3><span>$</span>{{brand.price}}</h3>
+                                            <h3><span>$</span>{{search.price}}</h3>
                                         {% endif %}
                                         <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy Now</a>
                                     </div>
                                 </div>
                             </div>
-                            {% endfor %}
 
+                            {% endfor %}
+                           <div class="col-md-4">
+                                <div class="product-item">
+                                    <div class="product-title">
+                                        <a href="#">Product Name</a>
+                                        <div class="ratting">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <div class="product-image">
+                                        <a href="product-detail.html">
+                                            <img src="img/product-2.jpg" alt="Product Image">
+                                        </a>
+                                        <div class="product-action">
+                                            <a href="#"><i class="fa fa-cart-plus"></i></a>
+                                            <a href="#"><i class="fa fa-heart"></i></a>
+                                            <a href="#"><i class="fa fa-search"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="product-price">
+                                        <h3><span>$</span>99</h3>
+                                        <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy Now</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <!-- Pagination Start -->
@@ -277,4 +304,4 @@
         </div>
         <!-- Brand End -->
 
-    {% endblock %}
+{% endblock %}
