@@ -72,3 +72,27 @@ class Product(models.Model):
 
     def __str__(self):
         return self.product_name
+
+class ProductReview(models.Model):
+    username = models.CharField(max_length=60)
+    email = models.EmailField()
+    review = models.TextField()
+    star = models.IntegerField()
+    image = models.ImageField(upload_to='reviews',null=True)
+    date = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return self.username
+
+class Cart(models.Model):
+    name = models.CharField(max_length=50)
+    price = models.IntegerField()
+    quantity = models.IntegerField()
+    total = models.IntegerField()
+    slug = models.SlugField(max_length=200)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    checkout = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name
+

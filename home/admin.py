@@ -8,4 +8,6 @@ admin.site.register(Ad)
 admin.site.register(Brand)
 admin.site.register(Feedback)
 admin.site.register(Product)
+admin.site.register(ProductReview)
+admin.site.register(Cart)
 
